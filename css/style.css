@@ -1,0 +1,1331 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap');
+
+
+:root {
+
+    --pink: #f3d9df;
+    --pink-light: #f9e9ed;
+    --pink-dark: #c98599;
+
+    --green: #a8c7a2;
+    --green-light: #e4eee1;
+    --green-dark: #607d5c;
+
+    --cream: #fffaf6;
+    --white: #ffffff;
+
+    --text: #40503d;
+    --muted: #7d877b;
+
+    --shadow:
+        0 15px 50px rgba(64, 80, 61, 0.08);
+
+}
+
+
+* {
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    background: var(--cream);
+
+    color: var(--text);
+
+    font-family: 'Manrope', sans-serif;
+}
+
+
+a {
+    color: inherit;
+
+    text-decoration: none;
+}
+
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================
+   ОБЩИЕ ЭЛЕМЕНТЫ
+========================================= */
+
+
+.eyebrow {
+
+    color: var(--pink-dark);
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.2em;
+
+    text-transform: uppercase;
+
+}
+
+
+.back-link {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    color: var(--green-dark);
+
+    font-size: 13px;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+
+.back-link:hover {
+
+    transform: translateX(-4px);
+
+    opacity: 0.7;
+
+}
+
+
+.page-header {
+
+    max-width: 1100px;
+
+    margin: 0 auto 55px;
+
+}
+
+
+.page-header__center {
+
+    margin-top: 35px;
+
+    text-align: center;
+
+}
+
+
+.page-header__center h1 {
+
+    margin-top: 8px;
+
+    color: var(--green-dark);
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: clamp(60px, 8vw, 100px);
+
+    font-weight: 500;
+
+    line-height: 0.9;
+
+}
+
+
+.page-header__center p:last-child {
+
+    margin-top: 18px;
+
+    color: var(--text);
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 23px;
+
+}
+
+
+/* =========================================
+   ГЛАВНАЯ
+========================================= */
+
+
+.home {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(243, 217, 223, 0.9),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 90% 85%,
+            rgba(168, 199, 162, 0.65),
+            transparent 30%
+        );
+
+}
+
+
+.hero {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+}
+
+
+.hero__image {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-position: center;
+
+    background-size: cover;
+
+    background-repeat: no-repeat;
+
+    opacity: 0.7;
+
+}
+
+
+.hero__overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(255, 250, 246, 0.9),
+            rgba(255, 250, 246, 0.55),
+            rgba(255, 250, 246, 0.75)
+        );
+
+}
+
+
+.hero__content {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(650px, 90%);
+
+    text-align: center;
+
+}
+
+
+.hero__eyebrow {
+
+    margin-bottom: 20px;
+
+    color: var(--green-dark);
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.22em;
+
+    text-transform: uppercase;
+
+}
+
+
+.hero__title {
+
+    color: var(--green-dark);
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: clamp(80px, 12vw, 150px);
+
+    font-weight: 500;
+
+    line-height: 0.75;
+
+    letter-spacing: -0.04em;
+
+}
+
+
+.hero__subtitle {
+
+    margin-top: 38px;
+
+    color: var(--pink-dark);
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 30px;
+
+}
+
+
+.hero__description {
+
+    max-width: 450px;
+
+    margin: 18px auto 0;
+
+    color: var(--text);
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+}
+
+
+.hero__buttons {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 42px;
+
+}
+
+
+.button {
+
+    width: min(330px, 100%);
+
+    padding: 16px 24px;
+
+    border-radius: 100px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    text-align: center;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+
+.button:hover {
+
+    transform: translateY(-3px);
+
+}
+
+
+.button--primary {
+
+    background: var(--green-dark);
+
+    color: var(--white);
+
+    box-shadow:
+        0 12px 30px rgba(96, 125, 92, 0.22);
+
+}
+
+
+.button--primary:hover {
+
+    box-shadow:
+        0 16px 35px rgba(96, 125, 92, 0.32);
+
+}
+
+
+.button--secondary {
+
+    background: var(--pink);
+
+    color: var(--text);
+
+}
+
+
+.button--text {
+
+    width: auto;
+
+    background: transparent;
+
+    color: var(--green-dark);
+
+    font-size: 12px;
+
+}
+
+
+/* =========================================
+   ДЕКОРАТИВНЫЕ ЛИСТЬЯ
+========================================= */
+
+
+.leaf {
+
+    position: absolute;
+
+    z-index: 3;
+
+    color: var(--green);
+
+    font-family: serif;
+
+    font-size: 180px;
+
+    line-height: 1;
+
+    opacity: 0.2;
+
+    pointer-events: none;
+
+}
+
+
+.leaf--1 {
+
+    left: -50px;
+
+    bottom: 20px;
+
+    transform: rotate(-40deg);
+
+}
+
+
+.leaf--2 {
+
+    right: -40px;
+
+    top: 30px;
+
+    transform: rotate(140deg);
+
+}
+
+
+.leaf--3 {
+
+    left: 8%;
+
+    top: 8%;
+
+    font-size: 90px;
+
+    transform: rotate(20deg);
+
+}
+
+
+.leaf--4 {
+
+    right: 10%;
+
+    bottom: 8%;
+
+    font-size: 100px;
+
+    transform: rotate(200deg);
+
+}
+
+
+/* =========================================
+   КАТАЛОГ
+========================================= */
+
+
+.catalog-page {
+
+    min-height: 100vh;
+
+    padding: 50px 6% 90px;
+
+    background:
+
+        radial-gradient(
+            circle at 5% 10%,
+            rgba(243, 217, 223, 0.7),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 95% 90%,
+            rgba(168, 199, 162, 0.55),
+            transparent 25%
+        );
+
+}
+
+
+.categories {
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 22px;
+
+}
+
+
+.category-card {
+
+    position: relative;
+
+    min-height: 320px;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    border-radius: 30px;
+
+    background: var(--white);
+
+    box-shadow: var(--shadow);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.category-card:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 22px 60px rgba(64, 80, 61, 0.13);
+
+}
+
+
+.category-card--large {
+
+    grid-column: span 2;
+
+    min-height: 390px;
+
+}
+
+
+.category-card__visual {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--pink),
+            var(--green-light)
+        );
+
+}
+
+
+.category-card__visual span {
+
+    font-size: 100px;
+
+    opacity: 0.7;
+
+    transition:
+        transform 0.4s ease;
+
+}
+
+
+.category-card:hover
+.category-card__visual span {
+
+    transform: scale(1.12) rotate(4deg);
+
+}
+
+
+.category-card__content {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    padding: 35px;
+
+    background:
+
+        linear-gradient(
+            to top,
+            rgba(255, 250, 246, 0.99),
+            rgba(255, 250, 246, 0.88),
+            transparent
+        );
+
+}
+
+
+.category-card__number {
+
+    color: var(--pink-dark);
+
+    font-size: 11px;
+
+    letter-spacing: 0.15em;
+
+}
+
+
+.category-card__content h2 {
+
+    margin-top: 5px;
+
+    color: var(--green-dark);
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 40px;
+
+    font-weight: 600;
+
+    line-height: 0.9;
+
+}
+
+
+.category-card__content p {
+
+    margin-top: 12px;
+
+    color: var(--text);
+
+    font-size: 12px;
+
+}
+
+
+/* =========================================
+   ТОВАРЫ
+========================================= */
+
+
+.products-page {
+
+    min-height: 100vh;
+
+    padding: 50px 6% 90px;
+
+    background:
+
+        radial-gradient(
+            circle at 5% 10%,
+            rgba(243, 217, 223, 0.65),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 95% 90%,
+            rgba(168, 199, 162, 0.45),
+            transparent 25%
+        );
+
+}
+
+
+.products-grid {
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 35px 22px;
+
+}
+
+
+.product-card {
+
+    min-width: 0;
+
+}
+
+
+.product-card__image {
+
+    position: relative;
+
+    display: block;
+
+    aspect-ratio: 1 / 1;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    background: var(--pink-light);
+
+}
+
+
+.product-card__image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.45s ease;
+
+}
+
+
+.product-card:hover
+.product-card__image img {
+
+    transform: scale(1.04);
+
+}
+
+
+.product-placeholder {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--pink),
+            var(--green-light)
+        );
+
+    font-size: 75px;
+
+}
+
+
+.product-card__status {
+
+    position: absolute;
+
+    top: 15px;
+
+    left: 15px;
+
+    padding: 7px 11px;
+
+    border-radius: 50px;
+
+    background: rgba(255, 250, 246, 0.9);
+
+    backdrop-filter: blur(8px);
+
+    color: var(--green-dark);
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+}
+
+
+.product-card__info {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 17px 5px 0;
+
+}
+
+
+.product-card__info h2 {
+
+    color: var(--text);
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 26px;
+
+    font-weight: 600;
+
+    line-height: 1;
+
+}
+
+
+.product-card__description {
+
+    margin-top: 7px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    line-height: 1.4;
+
+}
+
+
+.product-card__price {
+
+    flex-shrink: 0;
+
+    color: var(--green-dark);
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+
+}
+
+
+.loading,
+.error-message {
+
+    grid-column: 1 / -1;
+
+    padding: 80px 20px;
+
+    text-align: center;
+
+    color: var(--green-dark);
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 25px;
+
+}
+
+
+/* =========================================
+   СТРАНИЦА ТОВАРА
+========================================= */
+
+
+.product-page {
+
+    min-height: 100vh;
+
+    padding: 50px 6% 90px;
+
+    background:
+
+        radial-gradient(
+            circle at 5% 10%,
+            rgba(243, 217, 223, 0.65),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 95% 90%,
+            rgba(168, 199, 162, 0.45),
+            transparent 25%
+        );
+
+}
+
+
+.product-page__header {
+
+    max-width: 1100px;
+
+    margin: 0 auto 40px;
+
+}
+
+
+.product-detail {
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: 1.1fr 0.9fr;
+
+    gap: 70px;
+
+    align-items: start;
+
+}
+
+
+.product-gallery {
+
+    min-width: 0;
+
+}
+
+
+.product-main-image {
+
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    overflow: hidden;
+
+    border-radius: 35px;
+
+    background: var(--pink-light);
+
+}
+
+
+.product-main-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+}
+
+
+.product-thumbnails {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 10px;
+
+    margin-top: 12px;
+
+}
+
+
+.product-thumbnail {
+
+    aspect-ratio: 1;
+
+    overflow: hidden;
+
+    border: 2px solid transparent;
+
+    border-radius: 15px;
+
+    background: var(--pink-light);
+
+    cursor: pointer;
+
+}
+
+
+.product-thumbnail.active {
+
+    border-color: var(--green-dark);
+
+}
+
+
+.product-thumbnail img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+.product-info {
+
+    padding-top: 15px;
+
+}
+
+
+.product-info__category {
+
+    color: var(--pink-dark);
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.15em;
+
+    text-transform: uppercase;
+
+}
+
+
+.product-info h1 {
+
+    margin-top: 12px;
+
+    color: var(--green-dark);
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: clamp(50px, 6vw, 75px);
+
+    font-weight: 500;
+
+    line-height: 0.9;
+
+}
+
+
+.product-info__price {
+
+    margin-top: 25px;
+
+    color: var(--text);
+
+    font-size: 20px;
+
+    font-weight: 600;
+
+}
+
+
+.product-info__status {
+
+    display: inline-block;
+
+    margin-top: 12px;
+
+    padding: 7px 13px;
+
+    border-radius: 50px;
+
+    background: var(--green-light);
+
+    color: var(--green-dark);
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+}
+
+
+.product-info__description {
+
+    margin-top: 35px;
+
+    color: var(--text);
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+}
+
+
+.product-info__materials {
+
+    margin-top: 25px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid rgba(96, 125, 92, 0.15);
+
+}
+
+
+.product-info__materials strong {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--green-dark);
+
+    font-size: 12px;
+
+}
+
+
+.product-info__materials span {
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+}
+
+
+.order-button {
+
+    display: block;
+
+    width: 100%;
+
+    margin-top: 35px;
+
+    padding: 17px 25px;
+
+    border-radius: 100px;
+
+    background: var(--green-dark);
+
+    color: var(--white);
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    text-align: center;
+
+    box-shadow:
+        0 12px 30px rgba(96, 125, 92, 0.2);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+.order-button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 17px 35px rgba(96, 125, 92, 0.3);
+
+}
+
+
+.order-button.disabled {
+
+    background: #c8c8c8;
+
+    pointer-events: none;
+
+    box-shadow: none;
+
+}
+
+
+/* =========================================
+   МОБИЛЬНАЯ ВЕРСИЯ
+========================================= */
+
+
+@media (max-width: 850px) {
+
+    .products-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+
+    .product-detail {
+
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+    }
+
+
+    .product-info {
+
+        padding-top: 0;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .page-header {
+
+        margin-bottom: 35px;
+
+    }
+
+
+    .catalog-page,
+    .products-page,
+    .product-page {
+
+        padding: 30px 20px 60px;
+
+    }
+
+
+    .categories {
+
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+
+    }
+
+
+    .category-card,
+    .category-card--large {
+
+        grid-column: span 1;
+
+        min-height: 280px;
+
+    }
+
+
+    .category-card__content {
+
+        padding: 25px;
+
+    }
+
+
+    .category-card__content h2 {
+
+        font-size: 34px;
+
+    }
+
+
+    .products-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 28px 12px;
+
+    }
+
+
+    .product-card__info {
+
+        display: block;
+
+        padding-top: 12px;
+
+    }
+
+
+    .product-card__info h2 {
+
+        font-size: 22px;
+
+    }
+
+
+    .product-card__price {
+
+        margin-top: 8px;
+
+    }
+
+
+    .product-card__description {
+
+        font-size: 10px;
+
+    }
+
+
+    .hero__title {
+
+        font-size: 78px;
+
+    }
+
+
+    .hero__subtitle {
+
+        font-size: 25px;
+
+    }
+
+
+    .leaf {
+
+        font-size: 100px;
+
+    }
+
+}
