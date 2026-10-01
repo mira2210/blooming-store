@@ -2,7 +2,41 @@
 // BLOOMING STORE
 // Главный JavaScript-файл сайта
 // ============================================================
+// ============================================================
+// TELEGRAM MINI APP
+// ============================================================
 
+const tg = window.Telegram?.WebApp || null;
+
+if (tg) {
+
+    // Сообщаем Telegram, что приложение готово
+    tg.ready();
+
+    // Раскрываем Mini App на максимально доступную высоту
+    tg.expand();
+
+    // Используем цвета интерфейса Telegram,
+    // если они доступны
+    if (tg.themeParams) {
+
+        const root = document.documentElement;
+
+        if (tg.themeParams.bg_color) {
+            root.style.setProperty(
+                '--tg-bg',
+                tg.themeParams.bg_color
+            );
+        }
+
+        if (tg.themeParams.text_color) {
+            root.style.setProperty(
+                '--tg-text',
+                tg.themeParams.text_color
+            );
+        }
+    }
+}
 // ------------------------------------------------------------
 // НАСТРОЙКИ
 // ------------------------------------------------------------
@@ -1095,7 +1129,90 @@ async function loadHomePage() {
         }
     }
 }
+// ============================================================
+// TELEGRAM BACK BUTTON
+// ============================================================
 
+function setupTelegramBackButton() {
+
+    if (!tg) {
+        return;
+    }
+
+    const currentPage =
+        window.location.pathname.split('/').pop();
+
+
+    // На главной странице кнопка Telegram "Назад"
+    // не нужна
+
+    if (
+        currentPage === 'index.html' ||
+        currentPage === ''
+    ) {
+
+        tg.BackButton.hide();
+
+        return;
+    }
+
+
+    // На всех остальных страницах показываем
+    // системную кнопку Telegram "Назад"
+
+    tg.BackButton.show();
+
+
+    tg.BackButton.onClick(() => {
+
+        if (currentPage === 'catalog.html') {
+
+            window.location.href =
+                'index.html';
+
+            return;
+        }
+
+
+        if (currentPage === 'category.html') {
+
+            window.location.href =
+                'catalog.html';
+
+            return;
+        }
+
+
+        if (currentPage === 'product.html') {
+
+            const params =
+                new URLSearchParams(
+                    window.location.search
+                );
+
+            const category =
+                params.get('category');
+
+
+            if (category) {
+
+                window.location.href =
+                    `category.html?category=${encodeURIComponent(category)}`;
+
+            } else {
+
+                window.location.href =
+                    'catalog.html';
+            }
+
+            return;
+        }
+
+
+        window.history.back();
+
+    });
+}
 
 // ------------------------------------------------------------
 // ЗАПУСК
@@ -1104,6 +1221,8 @@ async function loadHomePage() {
 document.addEventListener(
     'DOMContentLoaded',
     () => {
+
+        setupTelegramBackButton();
 
         loadHomePage();
 
